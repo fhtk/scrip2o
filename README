@@ -1,0 +1,18 @@
+*****
+
+scrip2o™
+
+Created by Alexander Nicholi
+Copyright © 2019-2020 Fanhacker’s Toolkit.
+Released under MPL 2.0.
+
+*****
+
+This tool converts PokéScrip text files into their binary equivalents.
+PokéScrip is a low-level format designed to have a 1:1 semantic correlation
+with the scripting bytecode used in the third generation core series Pokémon
+games for the Nintendo® Game Boy Advance™. It can serve either as a concise,
+close-to-the-metal way to write scripts for these game engines, or as a target
+for higher-level languages, including PretScript and PKS2. The format is on
+the same level as the PokéSnip text encoding format. Run ‘scrip2o --help’ for
+details.

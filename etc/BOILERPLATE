@@ -1,0 +1,19 @@
+This file contains the project’s copypastable boilerplate comment headers.
+
+Boilerplate for C-like languages:
+
+/****************************************************************************\
+ *                                 scrip2o™                                 *
+ *                                                                          *
+ *                    Copyright © 2020 Alexander Nicholi                    *
+ *                       Released under BSD-2-Clause.                       *
+\****************************************************************************/
+
+Hash-based boilerplate (Python, POSIX shell, Makefile):
+
+##############################################################################
+##                                 scrip2o™                                 ##
+##                                                                          ##
+##                    Copyright © 2020 Alexander Nicholi                    ##
+##                       Released under BSD-2-Clause.                       ##
+##############################################################################

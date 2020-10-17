@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
 /data
-/gfx2o
 /3rdparty/*
 !/3rdparty/README
 
 *.o
 *.obj
+*.gcno
+*.gcda
 *.a
 *.so
 *.dylib

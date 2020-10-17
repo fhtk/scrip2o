@@ -4,9 +4,7 @@
 			"name": "Linux",
 			"includePath": [
 				"${workspaceFolder}/include",
-				"${workspaceFolder}/src",
-				"${workspaceFolder}/3rdparty/unilib/include",
-				"${workspaceFolder}/3rdparty/mangledeggslib/include"
+				"${workspaceFolder}/src"
 			],
 			"defines": [
 				"__VSCODE_INTELLISENSE__"
@@ -19,9 +17,7 @@
 			"name": "Mac",
 			"includePath": [
 				"${workspaceFolder}/include",
-				"${workspaceFolder}/src",
-				"${workspaceFolder}/3rdparty/unilib/include",
-				"${workspaceFolder}/3rdparty/mangledeggslib/include"
+				"${workspaceFolder}/src"
 			],
 			"defines": [
 				"__VSCODE_INTELLISENSE__"

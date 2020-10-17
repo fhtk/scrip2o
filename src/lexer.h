@@ -14,19 +14,20 @@ typedef u8 tokid_t;
 
 enum
 {
-	T_END = 0,
-	T_LF,
-	T_DIREC,
 	T_STRLIT,
+	T_NEWLN,
+	T_NUM,
+	T_DIREC,
 	T_IDENT,
-	T_NUM
+	T_END,
+	MAX_T = T_END
 };
 
 struct tok
 {
 	u8* data;
 	u32 data_sz : 29;
-	u32 id : 3;
+	u32 type : 3;
 };
 
 struct tok* lex( const char* );

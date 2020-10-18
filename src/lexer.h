@@ -9,6 +9,7 @@
 #define INC__SCRIP_LEXER_H
 
 #include <uni/types/int.h>
+#include <scrip.h>
 
 typedef u8 tokid_t;
 
@@ -18,6 +19,7 @@ enum
 	T_NEWLN,
 	T_NUM,
 	T_DIREC,
+	T_LABEL,
 	T_IDENT,
 	T_END,
 	MAX_T = T_END

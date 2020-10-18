@@ -11,9 +11,9 @@ include $(AQ)/lib/slick/base.mk
 PROJECT := scrip2o
 
 # put a ‘1’ for the desired target types to compile
-EXEFILE := 1
+EXEFILE :=
 SOFILE  :=
-AFILE   :=
+AFILE   := 1
 
 # space-separated path list for #includes
 # <system> includes
@@ -22,7 +22,7 @@ INCLUDES := include /usr/local/include
 INCLUDEL := src
 
 # space-separated library name list
-LIBS    := tes uni_log uni_err uni_log uni_himem uni_str mangledeggs
+LIBS    := tes uni_log uni_err uni_himem uni_str mangledeggs
 LIBDIRS := /usr/local/lib
 
 # ‘3P’ are in-tree 3rd-party dependencies

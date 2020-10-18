@@ -66,6 +66,8 @@ static ptri scan_strlit( const char* in )
 		return 0;
 	}
 
+	i++;
+
 	while( in[i] != '"' || (i > 0 && in[i] == '"' && in[i - 1] == '\\') )
 	{
 		i++;
@@ -73,7 +75,7 @@ static ptri scan_strlit( const char* in )
 
 	if(in[i] == '"')
 	{
-		return i;
+		return i + 1;
 	}
 
 	return 0;
@@ -94,8 +96,6 @@ static ptri scan_num( const char* in )
 
 	if( in[i] == '0' )
 	{
-		i++;
-
 		switch(in[i])
 		{
 		case 'x':
@@ -117,7 +117,7 @@ static ptri scan_num( const char* in )
 			break;
 		}
 
-		i++;
+		i += 2;
 	}
 	else
 	{
@@ -134,6 +134,11 @@ static ptri scan_num( const char* in )
 	}
 
 	return i;
+}
+
+static ptri scan_label( const char* in )
+{
+	return in[0] == ':' ? 1 : 0;
 }
 
 static ptri scan_newln( const char* in )
@@ -162,6 +167,7 @@ static const PFN_scan scanners[MAX_T] = {
 	scan_newln,
 	scan_num,
 	scan_direc,
+	scan_label,
 	scan_ident
 };
 
@@ -241,29 +247,29 @@ struct tok* lex( const char* in )
 
 			if( len > 0 )
 			{
-				struct tok this;
+				struct tok curtok;
 
-				this.type = j;
+				curtok.type = j;
 
 				if( j == T_NUM )
 				{
 					s32 num = strtos32( (const char*)(str + i), len );
-					this.data = uni_alloc( sizeof(s32) );
-					*this.data = num;
-					this.data_sz = sizeof(s32);
+					curtok.data = uni_alloc( sizeof(s32) );
+					*(s32*)curtok.data = num;
+					curtok.data_sz = sizeof(s32);
 				}
 				else
 				{
-					this.data_sz = len + 1;
-					this.data = uni_alloc( this.data_sz );
-					uni_memcpy( this.data, (u8*)str + i, len );
-					this.data[len] = '\0';
+					curtok.data_sz = len + 1;
+					curtok.data = uni_alloc( curtok.data_sz );
+					uni_memcpy( curtok.data, (u8*)str + i, len );
+					curtok.data[len] = '\0';
 				}
 
-				uni_memcpy( &(ret[ret_sz]), &this, sizeof(struct tok) );
+				uni_memcpy( &(ret[ret_sz]), &curtok, sizeof(struct tok) );
 
 				ret_sz++;
-				i += len;
+				i += len - 1;
 
 				break;
 			}
